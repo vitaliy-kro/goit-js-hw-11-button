@@ -1,14 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
   devServer: {
     historyApiFallback: true,
     static: {
-      directory: path.join(__dirname, './dist'),
+      directory: path.join(__dirname, '/dist'),
     },
     open: true,
     compress: true,
@@ -21,7 +21,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
-    publicPath: '/goit-js-hw-11/',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -30,7 +29,9 @@ module.exports = {
       filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin({
+      publicPath: '/goit-js-hw-11/',
+    }),
   ],
   module: {
     rules: [
