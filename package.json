@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vitaliy-kro/goit-js-hw-11.git"
   },
   "keywords": [],
-  "author": "YOUR_NAME <YOUR_EMAIL>",
+  "author": "Vitaliy Krochak krochakv6@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vitaliy-kro/goit-js-hw-11/issues"

@@ -21,6 +21,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
+    publicPath: '/goit-js-hw-11/',
   },
   plugins: [
     new HtmlWebpackPlugin({
