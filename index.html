@@ -7,6 +7,16 @@
     <title>Image search</title>
   <script defer src="main.bundle.js"></script></head>
   <body>
-    <h1>hello</h1>
+    <form class="search-form" id="search-form">
+      <input
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button type="submit">Search</button>
+    </form>
+    <div class="gallery"></div>
+    <button type="button" class="load-more">Load more</button>
   </body>
 </html>
