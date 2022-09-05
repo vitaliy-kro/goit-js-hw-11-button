@@ -7,6 +7,24 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <h1>hello</h1>
+    <form class="search-form" id="search-form">
+      <input
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button type="submit">&#128269;</button>
+    </form>
+    <div class="gallery"></div>
+    <div class="page-load-status">
+      <div class="loader-ellips">
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+      </div>
+    </div>
+    <!-- <button type="button" class="load-more">Load more</button> -->
   </body>
 </html>
