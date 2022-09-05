@@ -65,4 +65,4 @@ infScroll.on('scrollThreshold', async function () {
 //     top: cardHeight * 2,
 //     behavior: 'smooth',
 //   });
-// });
+// })
