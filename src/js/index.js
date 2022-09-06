@@ -1,6 +1,5 @@
 import Notiflix from 'notiflix';
 import InfiniteScroll from 'infinite-scroll';
-import infiniteAjaxScroll from '@webcreate/infinite-ajax-scroll';
 import '../styles/main.css';
 import createCardsMarkup from './createMarkup';
 import fetchSearch from './fetchSearch';
@@ -14,7 +13,7 @@ const refs = {
   // loadMoreBtn: document.querySelector('.load-more'),
   pageLoadStatus: document.querySelector('.page-load-status'),
 };
-let infScroll = new InfiniteScroll(refs['gallery'], {
+let infScroll = new InfiniteScroll(refs.gallery, {
   path: () =>
     `https://pixabay.com/api/?key=${URL_KEY}&q=cat&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${(page += 1)}`,
   history: false,
@@ -22,11 +21,9 @@ let infScroll = new InfiniteScroll(refs['gallery'], {
 });
 refs.form.addEventListener('submit', async e => {
   e.preventDefault();
-  refs.gallery.innerHTML = '';
+  clearGallery();
   refs.pageLoadStatus.style.display = 'none';
-  if (!e.target.elements.searchQuery.value.trim()) {
-    return Notiflix.Notify.info('Type something!');
-  }
+  if (!areInputEmpty(e)) return Notiflix.Notify.warning('Type something!');
 
   page = 1;
   const fetchResult = await fetchSearch(
@@ -37,9 +34,14 @@ refs.form.addEventListener('submit', async e => {
   infScroll.on('scrollThreshold', infScrollOptions);
 });
 
+function clearGallery() {
+  refs.gallery.innerHTML = '';
+}
+function areInputEmpty(e) {
+  return e.target.elements.searchQuery.value.trim();
+}
 async function infScrollOptions() {
   try {
-    page += 1;
     const fetch = await loadMorePages(
       refs.form.elements.searchQuery.value,
       page
@@ -48,11 +50,11 @@ async function infScrollOptions() {
     const createdMarkup = await createCardsMarkup(fetch, refs.gallery);
     smoothScroll();
   } catch (error) {
-    console.log('End');
     refs.pageLoadStatus.style.display = 'block';
     infScroll.off('scrollThreshold', infScrollOptions);
   }
 }
+
 // refs.loadMoreBtn.addEventListener('click', async e => {
 //   page += 1;
 //   const fetchResult = await onButtonMoreClick(
