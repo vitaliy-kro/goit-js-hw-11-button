@@ -22,7 +22,7 @@ let infScroll = new InfiniteScroll(refs.gallery, {
 refs.form.addEventListener('submit', async e => {
   e.preventDefault();
   clearGallery();
-  refs.pageLoadStatus.style.display = 'none';
+  PageLoadChangingDisplayStyle();
   if (!areInputEmpty(e)) return Notiflix.Notify.warning('Type something!');
 
   page = 1;
@@ -50,11 +50,17 @@ async function infScrollOptions() {
     const createdMarkup = await createCardsMarkup(fetch, refs.gallery);
     smoothScroll();
   } catch (error) {
-    refs.pageLoadStatus.style.display = 'block';
+    PageLoadChangingDisplayStyle(error);
     infScroll.off('scrollThreshold', infScrollOptions);
   }
 }
-
+function PageLoadChangingDisplayStyle(error) {
+  if (error) {
+    refs.pageLoadStatus.style.display = 'block';
+    return;
+  }
+  refs.pageLoadStatus.style.display = 'none';
+}
 // refs.loadMoreBtn.addEventListener('click', async e => {
 //   page += 1;
 //   const fetchResult = await onButtonMoreClick(
