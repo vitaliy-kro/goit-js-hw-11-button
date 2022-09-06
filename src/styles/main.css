@@ -28,6 +28,8 @@ p {
 
 .search-form {
   position: sticky;
+  top: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,13 +37,17 @@ p {
   background-color: blue;
 }
 .search-form > input {
-  width: 250px;
-  height: 20px;
+  width: 200px;
+  height: 30px;
   border-radius: 2px;
   border: 0px solid;
 }
 .search-form > button {
-  margin-left: -25px;
+  background-color: transparent;
+  border-color: transparent;
+  margin-left: -30px;
+  width: 30px;
+  height: 30px;
 }
 
 .gallery {
@@ -87,64 +93,4 @@ p {
   border-top: 1px solid #ddd;
   text-align: center;
   color: #777;
-}
-
-.loader-ellips {
-  font-size: 20px; /* change size here */
-  position: relative;
-  width: 4em;
-  height: 1em;
-  margin: 10px auto;
-}
-
-.loader-ellips__dot {
-  display: block;
-  width: 1em;
-  height: 1em;
-  border-radius: 0.5em;
-  background: #555; /* change color here */
-  position: absolute;
-  animation-duration: 0.5s;
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
-}
-
-.loader-ellips__dot:nth-child(1),
-.loader-ellips__dot:nth-child(2) {
-  left: 0;
-}
-.loader-ellips__dot:nth-child(3) {
-  left: 1.5em;
-}
-.loader-ellips__dot:nth-child(4) {
-  left: 3em;
-}
-
-@keyframes reveal {
-  from {
-    transform: scale(0.001);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-@keyframes slide {
-  to {
-    transform: translateX(1.5em);
-  }
-}
-
-.loader-ellips__dot:nth-child(1) {
-  animation-name: reveal;
-}
-
-.loader-ellips__dot:nth-child(2),
-.loader-ellips__dot:nth-child(3) {
-  animation-name: slide;
-}
-
-.loader-ellips__dot:nth-child(4) {
-  animation-name: reveal;
-  animation-direction: reverse;
 }

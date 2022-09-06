@@ -12,7 +12,6 @@ export default async function fetchSearch(value, page) {
       );
     }
     Notiflix.Notify.success(`Hooray, we found ${result.total} images`);
-    console.log(result);
     return result;
   } catch (error) {
     Notiflix.Notify.failure(error.message);
