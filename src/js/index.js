@@ -44,13 +44,12 @@ async function infScrollOptions() {
       refs.form.elements.searchQuery.value,
       page
     );
-    if (!fetch) throw new Error();
+    if (!fetch.hits.length) throw new Error();
     const createdMarkup = await createCardsMarkup(fetch, refs.gallery);
     smoothScroll();
   } catch (error) {
     console.log('End');
     refs.pageLoadStatus.style.display = 'block';
-    // Notiflix.Notify.failure(error.message);
     infScroll.off('scrollThreshold', infScrollOptions);
   }
 }
