@@ -1,0 +1,43 @@
+{
+  "name": "goit-js-hw-11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitaliy-kro/goit-js-hw-11.git"
+  },
+  "keywords": [],
+  "author": "Vitaliy Krochak krochakv6@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitaliy-kro/goit-js-hw-11/issues"
+  },
+  "homepage": "https://github.com/vitaliy-kro/goit-js-hw-11#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "imagesloaded": "^5.0.0",
+    "infinite-scroll": "^4.0.1",
+    "node-sass": "^7.0.1",
+    "notiflix": "^3.2.5",
+    "postcss-loader": "^7.0.1",
+    "postcss-preset-env": "^7.8.0",
+    "sass-loader": "^13.0.2",
+    "simplelightbox": "^2.10.3",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.1"
+  },
+  "dependencies": {
+    "gh-pages": "^4.0.0",
+    "handlebars-loader": "^1.7.2"
+  }
+}
