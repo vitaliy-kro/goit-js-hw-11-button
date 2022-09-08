@@ -24,7 +24,9 @@ refs.form.addEventListener('submit', async e => {
 
     page = 1;
     const fetchResult = await fetchSearch(trimmedValue, page);
+    Notiflix.Notify.success(`Hooray, we found ${fetchResult.total} images`);
     const createdMarkup = await createCardsMarkup(fetchResult, refs.gallery);
+
     if (fetchResult.total > 40) refs.loadMoreBtn.style.display = 'block';
   } catch (error) {
     defaultButtonStatus();
